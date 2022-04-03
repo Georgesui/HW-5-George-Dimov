@@ -1,0 +1,104 @@
+Task 1
+Написать функцию которая принимает вопрос и две функции колбэк. Вопрос который передаем в функцию должен вывестись в попапе, при потверждении нужно вызвать колбек для подтверждения, при отрицании вызвать соответсвующий колбек
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function accept () {
+        console.log('yes');
+    }
+    function decline () {
+        console.log('no');
+    }
+
+    function ask(question, yesCb, noCb) {
+        confirm(question) ? yesCb() : noCb();
+
+    }
+
+    ask('questin?', accept, decline);
+</script>
+</body>
+</html>
+
+Task 2
+Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
+Используя setInterval.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function printNumber(from, to) {
+        let i = from;
+
+        let int = setInterval(function(){
+            console.log(i);
+            i += 1;
+            if (i === 6) {
+                clearInterval(int);
+            }
+        }, 1000)
+
+
+    }
+    printNumber(1, 5);
+</script>
+</body>
+</html>
+
+Task 3
+Вывести текущую дату в реал тайме
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    setInterval(() => {
+        let now = new Date();
+        console.log(now)
+    }, 1000);
+</script>
+</body>
+</html>
+
+Task 4
+Написать рекурсивную функцию, которая будет принимать аргументом числовое значение и будет в консоль выводить сообщение со значением, инкрементируем его до тех пор пока не будет равно 1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function decreaseNum(num) {
+        let dec = num-1;
+        console.log(num)
+        if  (num === 1){
+            return;
+        }
+        decreaseNum(dec);
+    }
+
+    decreaseNum(5);
+</script>
+</body>
+</html>
