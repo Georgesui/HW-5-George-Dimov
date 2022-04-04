@@ -1,28 +1,3 @@
-// function newQuestion(question, yesCb, noCb) {
-// 	const newRequest = confirm(question);
-// 	if (newRequest) {
-// 		console.log(yesCb())
-// 	}
-// 	else {
-// 		console.log(noCb())
-// 	}
-// }
-// newQuestion(
-// 	'Да или нет?',
-// 	() => 'Ты сказал да',
-// 	() => 'Ты сказал нет'
-// )
-
-// function checkAge() {
-// 	let age = prompt('Сколько вам лет?')
-// 	if (+age === 18) {
-// 		return true
-// 	}
-// 	else {
-// 		return false
-// 	}
-// }
-// console.log(checkAge())
 console.log('------------- # 4.A')
 function countNumbers(a, b) {
 	if (a === b) {
@@ -63,15 +38,55 @@ console.log(secondCountNumbers(8, 4))
 
 console.log('------------- # 5.A,B')
 
-// setInterval(() => {
-// 	let currentTime = new Date();
-// 	let currentClock = currentTime.getHours() + ':' + currentTime.getMinutes() + ':' + currentTime.getSeconds()
-// 	console.log(currentClock)
-// }, 1000);
+function fullTimeClock() {
+	const currenTime = new Date();
+	let hours = currenTime.getHours();
+	if (hours < 10) {
+		hours = '0' + hours;
+	}
+	let minutes = currenTime.getMinutes();
+	if (minutes < 10) {
+		minutes = '0' + minutes;
+	}
 
-// console.log('------------- # 5.C')
-// setInterval(() => {
-// 	let currentTime = new Date();
-// 	let currentClock = currentTime.getHours() + ':' + currentTime.getMinutes() + ':' + currentTime.getSeconds();
+	let seconds = currenTime.getSeconds();
+	if (seconds < 10) {
+		seconds = '0' + seconds;
+	}
+	header__clock.innerHTML = hours + ':' + minutes + ':' + seconds;
+}
+setInterval(() => fullTimeClock(), 1000);
 
-// }, 1000);
+console.log('------------- # 5.C')
+let fullTime = true;
+let clockTimer = ''
+function fullTimeClock() {
+	const currenTime = new Date();
+	let hours = currenTime.getHours();
+	if (hours < 10) {
+		hours = '0' + hours;
+	}
+	let minutes = currenTime.getMinutes();
+	if (minutes < 10) {
+		minutes = '0' + minutes;
+	}
+
+	let seconds = currenTime.getSeconds();
+	if (seconds < 10) {
+		seconds = '0' + seconds;
+	}
+
+	if (fullTime) {
+		clockTimer = hours + ':' + minutes + ':' + seconds;
+	}
+	else {
+		clockTimer = hours + ':' + minutes
+	}
+	header__clock.innerHTML = clockTimer
+}
+setInterval(() => fullTimeClock(), 1000);
+
+header__button.addEventListener('click', () => {
+	fullTime = !fullTime
+	fullTimeClock()
+})

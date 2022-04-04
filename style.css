@@ -1,0 +1,39 @@
+.container {
+	max-width: 1360px;
+	margin: 0 auto;
+}
+
+.header {
+	font-family: 'Arial', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.header__clock {
+	border: solid 1px black;
+	border-radius: 8px;
+	max-width: 90px;
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.header__p {
+	padding: 0;
+	margin: 0;
+}
+
+.header__button {
+	border-radius: 8px;
+	padding: 7px;
+
+}
+
+.header__button:hover {
+	cursor: pointer;
+}
